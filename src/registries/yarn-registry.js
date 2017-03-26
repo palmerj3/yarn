@@ -24,6 +24,7 @@ export const DEFAULTS = {
   'save-prefix': '^',
   'ignore-scripts': false,
   'ignore-optional': false,
+  'module-quarantine-days': 0,
   registry: YARN_REGISTRY,
   'strict-ssl': true,
   'user-agent': [

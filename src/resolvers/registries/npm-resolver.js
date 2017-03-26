@@ -40,7 +40,8 @@ export default class NpmResolver extends RegistryResolver {
       range = body['dist-tags'][range];
     }
 
-    const satisfied = await config.resolveConstraints(Object.keys(body.versions), range);
+    const versionsWithDate = Object.keys(body.versions).map((v) => [v, body.time[v]]);
+    const satisfied = await config.resolveConstraints(versionsWithDate, range);
     if (satisfied) {
       return body.versions[satisfied];
     } else if (request && !config.nonInteractive) {
